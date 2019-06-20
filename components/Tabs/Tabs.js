@@ -56,6 +56,8 @@ class TabItem {
   }
 }
 
+
+
 /* START HERE: 
 
 - Select all classes named ".tabs-link" and assign that value to the links variable
@@ -71,3 +73,5 @@ links = document.querySelectorAll(".tabs-link");
 links.forEach((link) => {
   return new TabLink(link)
 });
+
+
