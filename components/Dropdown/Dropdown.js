@@ -13,13 +13,11 @@ class Dropdown {
     // Add a click handler to the button reference and call the toggleContent method.
     this.button.addEventListener('click', () =>  {
       this.toggleContent();
-      // this.toggleOn();
-      this.open1 = TweenLite.set(".dropdown-content",{minHeight:'20%',height:'auto'});
-      this.open2 = TweenLite.from(".dropdown-content",1.5,{minHeight:0,height:0});
-      this.openFade = TweenLite.from(".dropdown-link", 1.5, {opacity:0, delay:1.5});
-      // this.close1 = TweenLite.to(".dropdown-content",2,{minHeight:0,height:0});
-      // this.close2 = TweenLite.from(".dropdown-content",{minHeight:'20%',height:'auto'});
-      // this.closeFade = TweenLite.to(".dropdown-link", 1, {opacity:0, delay:1});
+      this.myFunction();
+        // this.open1 = TweenLite.set(".dropdown-content",{minHeight:'20%',height:'auto'});
+        // this.open2 = TweenLite.from(".dropdown-content",1.5,{minHeight:0,height:0});
+        // this.openFade = TweenLite.from(".dropdown-link", 1.5, {opacity:0, delay:1.5});
+        
     });
 
   }
@@ -27,17 +25,22 @@ class Dropdown {
   toggleContent() {
     // Toggle the ".dropdown-hidden" class off and on
     this.content.classList.toggle("dropdown-hidden");
-
   };
 
-  // toggleOn() {
-  //       TweenLite.set(".dropdown-content",{minHeight:'20%',height:'auto'});
-  //       TweenLite.from(".dropdown-content",2,{minHeight:0,height:0});
-  //       TweenLite.from(".dropdown-link", 2, {opacity:0, delay:1.5});
-  //       const close1 = TweenLite.to(".dropdown-content",2,{minHeight:0,height:0});
-  //       const close2 = TweenLite.from(".dropdown-content",{minHeight:'20%',height:'auto'});
+    myFunction() {
+    let x = document.querySelector(".dropdown-content");
+    let y = document.querySelector(".dropdown-hidden")
+    if (x.style.display === "none") {
+        this.closeFade = TweenLite.to(".dropdown-link", 1, {opacity:0, delay: .5});
+        this.close1 = TweenLite.to(".dropdown-content",2,{minHeight:0,height:0});
+        this.close2 = TweenLite.from(".dropdown-content",{minHeight:'20%',height:'auto'});
+    } else if (x.style.display !== "none")  {
+      this.open1 = TweenLite.set(".dropdown-content",{minHeight:'20%',height:'auto'});
+      this.open2 = TweenLite.from(".dropdown-content",1.5,{minHeight:0,height:0});
+      this.openFade = TweenLite.from(".dropdown-link", 1.5, {opacity:0, delay:1.5}); 
         
-  // }
+    }
+  }
  
 
 };
